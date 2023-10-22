@@ -1,0 +1,24 @@
+<section class="main-container container-fluid bg-light d-flex justify-content-center align-items-center">
+    <div class="secondary-container container d-flex  flex-column justify-content-start row-gap-3">
+        <div class="titles mb-6">
+            <h2 class="main-title">Soccer App</h2>
+            <h4 class="secondary-title">One place to know everything about Football</h4>
+        </div>
+        <form  class="d-flex flex-column"  [formGroup]="loginForm">
+            <input class="input-field mt-3 py-2 px-2" placeholder="Enter your Email" formControlName="email"/>
+            <p *ngIf="email?.invalid && email?.touched" class="text-danger error-text">Please enter a User Name</p>
+            <input class="input-field mt-3 py-2 px-2" placeholder="Enter your Password" type="password" formControlName="password"/>
+            <p *ngIf="password?.invalid && password?.touched" class="text-danger error-text">Please enter a valid password</p>
+            <p class="forgot-password text-primary">Forgot Password?</p>
+            <button class="signin-button btn btn-primary mt-3" mat-raised-button color="primary" (click)="handleSubmit()">Signin</button>
+        </form>
+        <div class="divider">
+            <div class="div-line"><hr></div>
+            <p class="other-option">New to Soccer App? <br><a routerLink="signup">Signup</a></p>
+            <div class="div-line"><hr></div>
+        </div>
+    </div>
+</section>
+
+
+
