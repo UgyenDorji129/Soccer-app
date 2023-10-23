@@ -1,0 +1,15 @@
+.main-container{
+    background-image: url("../../../../assets/football-ground.jpeg");
+    width: 100%;
+    height: calc(100vh - 5rem);
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; 
+    opacity: 0.9;
+    }
+
+.main-title{
+    color: white;
+    font-weight: 500;
+    font-size: 3.5rem;
+}
