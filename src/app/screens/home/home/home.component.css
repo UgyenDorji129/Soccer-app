@@ -6,10 +6,116 @@
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; 
     opacity: 0.9;
+    border: inset 10px transparent;
     }
 
 .main-title{
     color: white;
     font-weight: 500;
     font-size: 3.5rem;
+}
+.vl {
+    border-left: 3px solid rgb(69, 72, 69);
+    height: 2rem;
+  }
+.match-title{
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+.category-title{
+    font-weight: 200;
+    font-size: 1.2rem;
+}
+.category-title:hover{
+    font-weight: 300;
+    color: rgb(244, 70, 99);
+}
+
+.table-div{
+    border: 1px solid whitesmoke;
+    height: 25rem;
+}
+.table-title{
+    background-color: rgb(244, 94, 119);
+    color: white;
+}
+.date{
+    font-weight: 400;
+    font-size: 2rem;
+    padding-right: 0.5rem;
+}
+.day{
+    line-height: 0.8rem;
+    font-weight: 200;
+}
+
+.club-logo{
+    height: 6rem;
+    width: 4rem;
+}
+
+.club-details{
+    color: rgb(51, 50, 50);
+    font-weight: 400;
+}
+
+.trophy-icon{
+    height: 3rem;
+    width: 3rem;
+}
+.scores{
+    background-color: rgb(244, 94, 119);
+    border-radius: 2rem;
+
+}
+
+.scores p{
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.stadium-name{
+    color: rgb(51, 50, 50);
+    font-weight: 200;
+    font-size: 1rem;
+}
+
+
+.table-btn{
+    font-size: 0.6rem;
+}
+
+.count-down{
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.count-down span{
+    font-size: 0.5rem;
+}
+
+.leauge-title{
+    font-weight: 400;
+    font-size: 1rem;
+}
+.full-table{
+    line-height: 0.8rem;
+    font-weight: 200;
+}
+
+.table th{
+    color: rgb(244, 94, 119);
+}
+.table td{
+    color: rgb(69, 72, 69);
+    font-size: 0.75rem;
+}
+
+.table td img{
+    height: 2rem;
+    width: 2rem;
 }
