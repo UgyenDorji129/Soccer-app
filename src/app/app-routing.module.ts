@@ -5,6 +5,7 @@ import { SignupComponent } from './screens/signup/signup/signup.component';
 import { HomeComponent } from './screens/home/home/home.component';
 import { FixtureComponent } from './screens/fixture/fixture/fixture.component';
 import { BettingComponent } from './screens/bettings/betting/betting.component';
+import { TicketComponent } from './screens/ticket/ticket/ticket.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path:"bettings",
     component:BettingComponent
+  },
+  {
+    path:"ticket",
+    component:TicketComponent
   }
 ];
 

@@ -19,6 +19,9 @@ import { MatchDetailsComponent } from './screens/fixture/component/match-details
 import { BettingComponent } from './screens/bettings/betting/betting.component';
 import { BettingMatchDetailComponent } from './screens/bettings/components/betting-match-detail/betting-match-detail.component';
 import { BettingMonthYearComponent } from './screens/bettings/components/betting-month-year/betting-month-year.component';
+import { TicketComponent } from './screens/ticket/ticket/ticket.component';
+import { TicketMatchDetailComponent } from './screens/ticket/components/ticket-match-detail/ticket-match-detail.component';
+import { TicketMonthYearComponent } from './screens/ticket/components/ticket-month-year/ticket-month-year.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { BettingMonthYearComponent } from './screens/bettings/components/betting
     MatchDetailsComponent,
     BettingComponent,
     BettingMatchDetailComponent,
-    BettingMonthYearComponent
+    BettingMonthYearComponent,
+    TicketComponent,
+    TicketMatchDetailComponent,
+    TicketMonthYearComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,13 @@
+.vl {
+    border-left: 2px solid rgb(69, 72, 69);
+    height: 1.75rem;
+  }
+.year-div{
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: rgb(51, 50, 50);
+}
+.month-div{
+    font-weight: 200;
+    font-size: 1.2rem;
+}
