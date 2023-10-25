@@ -23,6 +23,7 @@ import { TicketComponent } from './screens/ticket/ticket/ticket.component';
 import { TicketMatchDetailComponent } from './screens/ticket/components/ticket-match-detail/ticket-match-detail.component';
 import { TicketMonthYearComponent } from './screens/ticket/components/ticket-month-year/ticket-month-year.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,7 @@ import { TicketMonthYearComponent } from './screens/ticket/components/ticket-mon
     BettingMonthYearComponent,
     TicketComponent,
     TicketMatchDetailComponent,
-    TicketMonthYearComponent
+    TicketMonthYearComponent,
   ],
   imports: [
     BrowserModule,
