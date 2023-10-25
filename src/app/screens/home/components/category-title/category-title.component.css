@@ -1,0 +1,16 @@
+.vl {
+    border-left: 3px solid rgb(69, 72, 69);
+    height: 2rem;
+  }
+.match-title{
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+.category-title{
+    font-weight: 200;
+    font-size: 1.2rem;
+}
+.category-title:hover{
+    font-weight: 300;
+    color: rgb(244, 70, 99);
+}

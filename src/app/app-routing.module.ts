@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { SigninComponent } from './screens/signin/signin/signin.component';
 import { SignupComponent } from './screens/signup/signup/signup.component';
 import { HomeComponent } from './screens/home/home/home.component';
+import { FixtureComponent } from './screens/fixture/fixture/fixture.component';
+import { BettingComponent } from './screens/bettings/betting/betting.component';
 
 const routes: Routes = [
   {
@@ -16,6 +18,14 @@ const routes: Routes = [
   {
     path:"home",
     component:HomeComponent
+  },
+  {
+    path:"fixtures",
+    component:FixtureComponent
+  },
+  {
+    path:"bettings",
+    component:BettingComponent
   }
 ];
 
