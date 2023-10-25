@@ -17,6 +17,8 @@ import { MiniFixtureComponent } from './screens/home/components/mini-fixture/min
 import { MonthYearComponent } from './screens/fixture/component/month-year/month-year.component';
 import { MatchDetailsComponent } from './screens/fixture/component/match-details/match-details.component';
 import { BettingComponent } from './screens/bettings/betting/betting.component';
+import { BettingMatchDetailComponent } from './screens/bettings/components/betting-match-detail/betting-match-detail.component';
+import { BettingMonthYearComponent } from './screens/bettings/components/betting-month-year/betting-month-year.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { BettingComponent } from './screens/bettings/betting/betting.component';
     MiniFixtureComponent,
     MonthYearComponent,
     MatchDetailsComponent,
-    BettingComponent
+    BettingComponent,
+    BettingMatchDetailComponent,
+    BettingMonthYearComponent
   ],
   imports: [
     BrowserModule,
