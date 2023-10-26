@@ -7,5 +7,43 @@
             <img src="../../../../assets/parofc.png" alt="team logo" class="logo">
         </div>
         <p class="club-name m-0">Paro FC</p>
-        <button class="btn btn-primary">Make Bets</button>
+        <button class="btn btn-primary" (click)="openModal()">Make Bets</button>
 </div>
+
+<div class="modal" id="ticket-Modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Buy Ticket</h4> 
+        </div>
+        <div class="modal-body">
+          <div class="date-stadium d-flex justify-content-between align-items-center mb-3">
+            <h4 class="stadium-name">Changlimi Thang</h4>
+            <h5 class="date-day">12 June 2023</h5>
+          </div>
+          <div class="match-details d-flex align-items-center justify-content-evenly">
+            <div class="club-details d-flex flex-column justify-content-around align-items-center">
+              <img src="../../../../assets/club-logo.png" alt="club logo" class="club-logo">
+              <p>Paro FC</p>
+          </div>
+              <h2 class="stadium-name">VS</h2>
+          
+          <div class="club-details d-flex flex-column justify-content-around align-items-center">
+              <img src="../../../../assets/club-logo.png" alt="club logo" class="club-logo">
+              <p>Paro FC</p>
+          </div>
+          </div>
+          <form  class="d-flex flex-column"  [formGroup]="goalForm">
+            <input class="input-field mt-3 py-2 px-2" placeholder="Enter your prediction for first team" type="number" formControlName="first_goal"/>
+            <!-- <p *ngIf="first_goal?.invalid && first_goal?.touched" class="text-danger error-text">Please enter a User Name</p> -->
+            <input class="input-field mt-3 py-2 px-2" placeholder="Enter your prediction for second team" type="number" formControlName="second_goal"/>
+            <!-- <p *ngIf="second_goal?.invalid && second_goal?.touched" class="text-danger error-text">Please enter a valid password</p> -->
+        </form>
+      </div>
+        <div class="modal-footer d-flex justify-content-between">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="closeModal()">Procced For Payment</button>
+        </div>
+      </div>
+    </div>
+  </div>

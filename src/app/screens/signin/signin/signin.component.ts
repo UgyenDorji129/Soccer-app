@@ -24,11 +24,11 @@ export class SigninComponent {
   }
 
   get email(){
-    return this.loginForm.get("email");
+    return this.loginForm.get("first_goal");
   }
 
   get password(){
-    return this.loginForm.get("password")
+    return this.loginForm.get("second_goal")
   }
   handleSubmit(){
     if(this.email?.valid && this.password?.valid){

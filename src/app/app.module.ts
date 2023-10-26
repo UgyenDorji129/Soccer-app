@@ -22,6 +22,11 @@ import { BettingMonthYearComponent } from './screens/bettings/components/betting
 import { TicketComponent } from './screens/ticket/ticket/ticket.component';
 import { TicketMatchDetailComponent } from './screens/ticket/components/ticket-match-detail/ticket-match-detail.component';
 import { TicketMonthYearComponent } from './screens/ticket/components/ticket-month-year/ticket-month-year.component';
+import { AdminComponent } from './screens/admin/admin/admin.component';
+import { AdminNavComponent } from './screens/admin/admin-nav/admin-nav.component';
+import { AllMatchesComponent } from './screens/admin/all-matches/all-matches.component';
+import { CurrentMatchesComponent } from './screens/admin/current-matches/current-matches.component';
+import { AddMatchesComponent } from './screens/admin/add-matches/add-matches.component';
 
 
 @NgModule({
@@ -45,6 +50,11 @@ import { TicketMonthYearComponent } from './screens/ticket/components/ticket-mon
     TicketComponent,
     TicketMatchDetailComponent,
     TicketMonthYearComponent,
+    AdminComponent,
+    AdminNavComponent,
+    AllMatchesComponent,
+    CurrentMatchesComponent,
+    AddMatchesComponent,
   ],
   imports: [
     BrowserModule,

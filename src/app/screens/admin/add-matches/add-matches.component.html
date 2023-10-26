@@ -1,0 +1,65 @@
+<app-admin-nav></app-admin-nav>
+<div class="main-container container d-flex flex-column justify-content-between row-gap-2 mt-4">
+    <div class="time-referee d-flex  row">
+       <div class="w-md-25 col-md-3 col-12">
+            <label for="date-time" class="form-label">Date and Time</label>
+            <input type="datetime-local" class="form-control " id="date-time">
+       </div>
+       <div class="w-md-25 col-md-3 col-12">
+            <label for="Referee" class="form-label">Referee Name</label>
+            <input type="text" placeholder="Enter the name of the Referee" class="form-control" id="Referee">
+       </div>
+       <div class="w-md-25 col-md-3 col-12">
+        <label for="lines-man-1" class="form-label">lines man 1</label>
+        <input type="text" placeholder="Enter the name of the Lines Man 1" class="form-control" id="lines-man-1">
+       </div>
+       <div class="w-md-25 col-md-3 col-12">
+        <label for="lines-man-2" class="form-label">lines man 2</label>
+        <input type="text" placeholder="Enter the name of the Lines Man 2" class="form-control" id="lines-man-2">
+       </div>
+    </div>
+
+    <div class="col-md-3 col-12">
+        <label for="stadium" class="form-label">Stadium Name</label>
+        <input type="text" placeholder="Enter the name of the stadium" class="form-control" id="stadium">
+   </div>
+    
+    <div class="teams-div d-flex justify-content-between row mt-4">
+        <div class="team-one  col-md-6 col-12">
+            <h4 class="text-center text-primary">Team A</h4>
+            <input type="text" placeholder="Enter the name of the Team" class="form-control mt-2">
+            <input type="text" placeholder="Enter the name of the Coach" class="form-control mt-2">
+            <input type="text" placeholder="Enter the club logo link" class="form-control mt-2">
+            <div *ngFor="let player of teamOnePlayerForms.controls; let i=index" 
+                    [formGroupName]="i" class="d-flex justify-content-between column-gap-2">
+                <input formControlName="number" class="form-control mt-2" placeholder="T-shirt Number">
+                <input formControlName="name" class="form-control mt-2" placeholder="Player Name">
+                <button (click)="deleteTeamOnePlayer(i)" class="btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="primary" class="bi bi-trash" viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                      </svg>
+                </button>
+            </div>
+            <button class="btn-primary btn mt-3" (click)="addTeamOnePlayer()">Add Player</button>
+        </div>
+        <div class="team-two  col-md-6 col-12">
+            <h4 class="text-center text-primary">Team B</h4>
+            <input type="text" placeholder="Enter the name of the Team" class="form-control mt-2">
+            <input type="text" placeholder="Enter the name of the Coach" class="form-control mt-2">
+            <input type="text" placeholder="Enter the club logo link" class="form-control mt-2">
+            <div *ngFor="let player of teamTwoPlayerForms.controls; let i=index" 
+                    [formGroupName]="i" class="d-flex justify-content-between column-gap-2">
+                <input formControlName="number" class="form-control mt-2" placeholder="T-shirt Number">
+                <input formControlName="name" class="form-control mt-2" placeholder="Player Name">
+                <button (click)="deleteTeamTwoPlayer(i)" class="btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="primary" class="bi bi-trash" viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                      </svg>
+                </button>
+            </div>
+            <button class="btn-primary btn mt-3" (click)="addTeamTwoPlayer()">Add Player</button>
+        </div>
+    </div>
+</div>
