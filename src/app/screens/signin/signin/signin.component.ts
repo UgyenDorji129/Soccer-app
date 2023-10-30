@@ -1,5 +1,5 @@
 import { HttpClient} from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { rootUrl } from 'src/app/constants';
@@ -13,7 +13,7 @@ export class SigninComponent{
   loginForm!: FormGroup;
   invalidCredential :boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient){}
+  constructor(private formBuilder: FormBuilder, private router: Router,private http: HttpClient){}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -38,17 +38,20 @@ export class SigninComponent{
   get password(){
     return this.loginForm.get("password")
   }
+
+  signIn(formData: any){
+    this.http.post(rootUrl+"auth/signin",formData,{ withCredentials: true }).subscribe((res:any)=>{
+      if(res.success === true){
+        this.router.navigate(["home"]);
+      }else{
+        this.invalidCredential = true;
+      }
+     });
+  }
  
-  handleSubmit(){
+  async handleSubmit(){
     if(this.email?.valid && this.password?.valid){
-      this.http.post(rootUrl+"auth/signin",this.loginForm.value,{ withCredentials: true }).subscribe((res:any)=>{
-        if(res.success === true){
-          this.router.navigate(["home"])
-        }
-        else{
-          this.invalidCredential = true
-        }
-       });
+      this.signIn(this.loginForm.value);
     }
   }
 }

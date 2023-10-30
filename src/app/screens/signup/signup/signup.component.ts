@@ -11,6 +11,7 @@ import { rootUrl } from 'src/app/constants';
 })
 export class SignupComponent {
   signupForm!: FormGroup;
+  invalidCredential: boolean = false;
   constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient){}
 
   ngOnInit(): void {
@@ -39,17 +40,28 @@ export class SignupComponent {
     return this.signupForm.get("name")
   }
 
+  signIn(formData: any){
+    this.http.post(rootUrl+"auth/signin",formData,{ withCredentials: true }).subscribe((res:any)=>{
+      if(res.success === true){
+        this.router.navigate(["home"]);
+      }else{
+        this.invalidCredential = true;
+      }
+     });
+  }
   handleSubmit(){
     if(this.email?.valid && this.password?.valid && this.name){
       if(this.email?.valid && this.password?.valid){
-        this.http.post(rootUrl+"auth/signup",this.signupForm.value).subscribe((res)=>{
-         console.log("data: ",JSON.stringify(res))
-        })
-      this.router.navigate(["home"])
+        this.http.post(rootUrl+"auth/signup",this.signupForm.value).subscribe((res:any)=>{
+          if(res.success == true){
+            this.signIn(this.signupForm.value);
+          }
+          else{
+            this.invalidCredential = true;
+          }
+         })
     }
-    else{
-      alert("Please enter a valid credentials")
-    }
+    
   }
 }
 }
