@@ -11,8 +11,7 @@
             <p *ngIf="email?.invalid && email?.touched" class="text-danger error-text">Please enter a valid email</p>
             <input class="input-field mt-3 py-2 px-2" placeholder="Enter your Password" type="password" formControlName="password"/>
             <p *ngIf="password?.invalid && password?.touched" class="text-danger error-text">Please enter a valid password</p>
-
-            <button class="signup-button btn btn-primary mt-3" mat-raised-button color="primary" (click)="handleSubmit()">Signup</button>
+            <button class="signup-button btn btn-primary mt-3" mat-raised-button color="primary" (click)="handleSubmit()" [disabled]="signupForm.invalid">Signup</button>
         </form>
         <div class="divider">
             <div class="div-line"><hr></div>

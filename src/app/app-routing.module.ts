@@ -8,42 +8,56 @@ import { BettingComponent } from './screens/bettings/betting/betting.component';
 import { TicketComponent } from './screens/ticket/ticket/ticket.component';
 import { AdminComponent } from './screens/admin/admin/admin.component';
 import { AddMatchesComponent } from './screens/admin/add-matches/add-matches.component';
+import { CookieService } from 'ngx-cookie-service';
+import { GuestGuard } from './guard/guest.guard';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {
-    path:"",
-    component:SigninComponent
+    path:"signin",
+    component:SigninComponent,
+    canActivate: [GuestGuard] 
   },
   {
     path:"signup",
-    component:SignupComponent
+    component:SignupComponent,
+    canActivate: [GuestGuard] 
   },
   {
     path:"home",
-    component:HomeComponent
+    component:HomeComponent,
+    canActivate: [AuthGuard] 
   },
   {
     path:"fixtures",
-    component:FixtureComponent
+    component:FixtureComponent,
+    canActivate: [AuthGuard] 
   },
   {
     path:"bettings",
-    component:BettingComponent
+    component:BettingComponent,
+    canActivate: [AuthGuard]  
   },
   {
-    path:"ticket",
-    component:TicketComponent
+    path:"tickets",
+    component:TicketComponent,
+    canActivate: [AuthGuard] 
   },{
     path:"admin",
-    component:AdminComponent
+    component:AdminComponent,
+    canActivate: [AuthGuard] 
   },{
     path:"add-matches",
-    component:AddMatchesComponent
-  }
+    component:AddMatchesComponent,
+    canActivate: [AuthGuard]  
+  },
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  providers:[CookieService],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

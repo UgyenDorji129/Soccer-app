@@ -6,15 +6,16 @@
         </div>
         <form  class="d-flex flex-column"  [formGroup]="loginForm">
             <input class="input-field mt-3 py-2 px-2" placeholder="Enter your Email" formControlName="email"/>
-            <p *ngIf="email?.invalid && email?.touched" class="text-danger error-text">Please enter a User Name</p>
+            <p *ngIf="email?.invalid && email?.touched" class="text-danger error-text">Please enter a valid email</p>
             <input class="input-field mt-3 py-2 px-2" placeholder="Enter your Password" type="password" formControlName="password"/>
             <p *ngIf="password?.invalid && password?.touched" class="text-danger error-text">Please enter a valid password</p>
             <p class="forgot-password text-primary">Forgot Password?</p>
-            <button class="signin-button btn btn-primary mt-3" mat-raised-button color="primary" (click)="handleSubmit()">Signin</button>
+            <p *ngIf="invalidCredential" class="text-danger error-text">Please Enter Correct Credentials</p>
+            <button class="signin-button btn btn-primary mt-3" mat-raised-button color="primary" (click)="handleSubmit()" [disabled]="loginForm.invalid">Signin</button>
         </form>
         <div class="divider">
             <div class="div-line"><hr></div>
-            <p class="other-option">New to Soccer App? <br><a routerLink="signup">Signup</a></p>
+            <p class="other-option">New to Soccer App? <br><a routerLink="/signup">Signup</a></p>
             <div class="div-line"><hr></div>
         </div>
     </div>

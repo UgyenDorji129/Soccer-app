@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SigninComponent } from './screens/signin/signin/signin.component';
@@ -27,6 +27,7 @@ import { AdminNavComponent } from './screens/admin/admin-nav/admin-nav.component
 import { AllMatchesComponent } from './screens/admin/all-matches/all-matches.component';
 import { CurrentMatchesComponent } from './screens/admin/current-matches/current-matches.component';
 import { AddMatchesComponent } from './screens/admin/add-matches/add-matches.component';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -59,9 +60,10 @@ import { AddMatchesComponent } from './screens/admin/add-matches/add-matches.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule, 
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
