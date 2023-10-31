@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { rootUrl } from 'src/app/constants';
 
 @Component({
@@ -14,7 +15,7 @@ export class AddMatchesComponent implements OnInit {
   teamTwoCount: number = 0;
   isInvalid: boolean = false;
 
-constructor(private fb: FormBuilder, private http: HttpClient) { }
+constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) { }
   ngOnInit(): void {
 
     this.teamForm = this.fb.group({
@@ -150,9 +151,9 @@ constructor(private fb: FormBuilder, private http: HttpClient) { }
   else{
     this.http.post(rootUrl+"matches/match",{teamOne, teamTwo, match, details, playerOne, playerTwo},{ withCredentials: true }).subscribe((res:any)=>{
       if(res.success === true){
-        console.log("Done",res)
+        this.router.navigate(["/admin"])
       }else{
-        console.log("Not Done", res)
+        alert("Could not form Match")
       }
      });
   }

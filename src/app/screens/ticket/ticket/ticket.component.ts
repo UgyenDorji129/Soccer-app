@@ -10,6 +10,7 @@ import { rootUrl } from 'src/app/constants';
 })
 export class TicketComponent {
   data!: any;
+  isLoading: boolean = false;
   constructor(private http: HttpClient){}
 
   groupByYearMonth(matches: Match[]) {
@@ -31,10 +32,11 @@ export class TicketComponent {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.http.get(rootUrl+"matches/allmatches").subscribe((res:any)=>{
       if(res.success === true){
         this.data = this.groupByYearMonth(res.data)
-        console.log(this.data[0][0].year_month)
+        this.isLoading = false;
       }
     });
 

@@ -67,7 +67,7 @@ import { TicketModalComponent } from './screens/ticket/components/ticket-modal/t
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule, 
-    MdbModalModule
+    MdbModalModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
