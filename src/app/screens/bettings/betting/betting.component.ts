@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Match } from '../../fixture/fixture/model/match.dto';
+import { Match } from '../../fixture/model/match.dto';
 import { rootUrl } from 'src/app/constants';
 
 @Component({

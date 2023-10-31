@@ -9,8 +9,8 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent {
-  data: any;
   goalForm!: FormGroup;
+  data: any;
   constructor(public modalRef: MdbModalRef<ModalComponent>, private formBuilder: FormBuilder, private router: Router) {}
   
  

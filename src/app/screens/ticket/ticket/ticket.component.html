@@ -1,10 +1,11 @@
 <app-navbar></app-navbar>
 
 <div class="ticket-main container">
-    <app-ticket-month-year></app-ticket-month-year>
-    <app-ticket-match-detail></app-ticket-match-detail>
-    <app-ticket-match-detail></app-ticket-match-detail>
-    <app-ticket-match-detail></app-ticket-match-detail>
-    <app-ticket-match-detail></app-ticket-match-detail>
-    <app-ticket-match-detail></app-ticket-match-detail>
+    <div *ngFor="let val of data; let i = index">
+        <app-ticket-month-year [data]="val[0].year_month"></app-ticket-month-year>
+        <div *ngFor="let key of returnObject(val)">
+            <app-ticket-match-detail [data]="val[key]" [index]="i"></app-ticket-match-detail>
+          </div>
+      </div>
 </div>
+

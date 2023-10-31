@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">Make</h5>
+    <h5 class="modal-title" id="exampleModalLabel">Buy Ticket</h5>
     <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
 </div>
 <div class="modal-body">
@@ -26,21 +26,7 @@
                     <p>{{data.teamTwo}}</p>
                 </div>
             </div>
-            <form class="d-flex flex-column" [formGroup]="goalForm">
-                <input class="input-field mt-3 py-2 px-2" placeholder="Enter your prediction for first team"
-                    type="number" formControlName="first_goal" />
-                <p *ngIf="firstGoal?.invalid && firstGoal?.touched" class="text-danger error-text">Please enter Valid Goal</p>
-                <input class="input-field mt-3 py-2 px-2" placeholder="Enter your prediction for second team"
-                    type="number" formControlName="second_goal" />
-                <p *ngIf="secondGoal?.invalid && secondGoal?.touched" class="text-danger error-text">Please enter Valid Goal</p>
-                <input class="input-field mt-3 py-2 px-2" placeholder="Enter amount" type="number"
-                    formControlName="amount" />
-                <p *ngIf="amounts?.invalid && amounts?.touched" class="text-danger error-text">Minimum Amount should be
-                    100</p>
-            </form>
         </div>
-       
-
 </div>
 
 

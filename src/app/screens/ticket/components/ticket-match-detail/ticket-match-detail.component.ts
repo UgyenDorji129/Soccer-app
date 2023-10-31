@@ -1,4 +1,7 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { ModalComponent } from 'src/app/screens/bettings/components/modal/modal.component';
+import { TicketModalComponent } from '../ticket-modal/ticket-modal.component';
 
 @Component({
   selector: 'app-ticket-match-detail',
@@ -6,17 +9,18 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./ticket-match-detail.component.css']
 })
 export class TicketMatchDetailComponent{
-  openModal(){
-    const modalDiv = document.getElementById("ticket-Modal");
-    if(modalDiv != null){
-      modalDiv.style.display = "block"
-    }
+  @Input() data: any;
+  @Input()
+  index!: any;
+
+  modalRef: MdbModalRef<TicketModalComponent> | null = null;
+
+  constructor(private modalService: MdbModalService) {}
+
+  openModal() {
+    console.log(this.data.time)
+    this.modalRef = this.modalService.open(TicketModalComponent,{
+      data: { data: this.data },
+    })
   }
-  closeModal(){
-    const modalDiv = document.getElementById("ticket-Modal");
-    if(modalDiv != null){
-      modalDiv.style.display = "none"
-    }
-  }
-  
 }

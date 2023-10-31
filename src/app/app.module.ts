@@ -30,6 +30,7 @@ import { AddMatchesComponent } from './screens/admin/add-matches/add-matches.com
 import { CookieService } from 'ngx-cookie-service';
 import { ModalComponent } from './screens/bettings/components/modal/modal.component';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+import { TicketModalComponent } from './screens/ticket/components/ticket-modal/ticket-modal.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
     CurrentMatchesComponent,
     AddMatchesComponent,
     ModalComponent,
+    TicketModalComponent,
   ],
   imports: [
     BrowserModule,

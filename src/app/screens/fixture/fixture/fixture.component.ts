@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { rootUrl } from 'src/app/constants';
-import { Match } from './model/match.dto';
+import { Match } from '../model/match.dto';
 
 @Component({
   selector: 'app-fixture',
