@@ -34,7 +34,8 @@ class="container d-flex justify-content-between align-items-center border-bottom
 <div
   class="d-flex justify-content-around align-items-center col-sm-3 col-xs-none"
 >
-  <button  class="btn btn-primary" (click)="openModal()">Book Ticket</button>
+  <button *ngIf="!isBooked" class="btn btn-primary" (click)="openModal()">Book Ticket</button>
+  <button  *ngIf="isBooked" class="btn btn-primary" >Ticket Booked</button>
 </div>
 </div>
 

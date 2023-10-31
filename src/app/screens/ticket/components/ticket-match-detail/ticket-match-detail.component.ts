@@ -15,11 +15,18 @@ export class TicketMatchDetailComponent{
   @Input()
   index!: any;
  
+  isBooked : boolean = false;
 
   modalRef: MdbModalRef<TicketModalComponent> | null = null;
 
   constructor(private modalService: MdbModalService, private http: HttpClient) {}
-
+  ngOnInit(): void {
+    this.http.post(rootUrl + "matches/isBooked",{matchId:this.data.matchId}).subscribe((res:any)=>{
+      if(res!= null && res.success === true ){
+        this.isBooked = true;
+      }
+    })
+  }
   
 
   openModal() {

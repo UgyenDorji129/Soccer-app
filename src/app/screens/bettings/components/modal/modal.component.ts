@@ -48,6 +48,7 @@ export class ModalComponent {
   makeBet(){
     this.http.post(rootUrl+"matches/bettings",{matchId: this.data.matchId, amount: this.amounts?.value, prediction: this.firstGoal?.value +"-"+this.secondGoal?.value}).subscribe((res:any)=>{
       this.router.navigate(["/home"]);
+      this.modalRef.close();
     })
   }
 
