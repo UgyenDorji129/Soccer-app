@@ -1,7 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
+import { rootUrl } from 'src/app/constants';
 
 @Component({
   selector: 'app-modal',
@@ -11,7 +13,7 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 export class ModalComponent {
   goalForm!: FormGroup;
   data: any;
-  constructor(public modalRef: MdbModalRef<ModalComponent>, private formBuilder: FormBuilder, private router: Router) {}
+  constructor(public modalRef: MdbModalRef<ModalComponent>, private formBuilder: FormBuilder, private router: Router, private http: HttpClient) {}
   
  
   ngOnInit(): void {
@@ -41,6 +43,12 @@ export class ModalComponent {
 
   get amounts(){
     return this.goalForm.get("amount")
+  }
+
+  makeBet(){
+    this.http.post(rootUrl+"matches/bettings",{matchId: this.data.matchId, amount: this.amounts?.value, prediction: this.firstGoal?.value +"-"+this.secondGoal?.value}).subscribe((res:any)=>{
+      this.router.navigate(["/home"]);
+    })
   }
 
 }

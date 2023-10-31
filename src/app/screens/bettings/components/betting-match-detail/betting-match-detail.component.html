@@ -34,7 +34,8 @@
   <div
     class="d-flex justify-content-around align-items-center col-sm-3 col-xs-none"
   >
-    <button class="btn btn-primary" (click)="openModal()">Make Bet</button>
+    <button *ngIf="!isBetted" class="btn btn-primary" (click)="openModal()">Make Bet</button>
+    <button *ngIf="isBetted" class="btn btn-primary" >{{goal}}</button>
   </div>
 </div>
 
