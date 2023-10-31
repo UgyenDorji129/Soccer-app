@@ -28,6 +28,8 @@ import { AllMatchesComponent } from './screens/admin/all-matches/all-matches.com
 import { CurrentMatchesComponent } from './screens/admin/current-matches/current-matches.component';
 import { AddMatchesComponent } from './screens/admin/add-matches/add-matches.component';
 import { CookieService } from 'ngx-cookie-service';
+import { ModalComponent } from './screens/bettings/components/modal/modal.component';
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 
 
 @NgModule({
@@ -56,12 +58,14 @@ import { CookieService } from 'ngx-cookie-service';
     AllMatchesComponent,
     CurrentMatchesComponent,
     AddMatchesComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule, 
+    MdbModalModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

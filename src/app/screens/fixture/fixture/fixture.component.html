@@ -1,10 +1,7 @@
 <app-navbar></app-navbar>
 <div class="fixtures-main container">
     
-    <!-- <app-match-details></app-match-details>
-    <app-match-details></app-match-details>
-    <app-match-details></app-match-details>
-    <app-match-details></app-match-details> -->
+ 
 
     <div *ngFor="let val of data; let i = index">
         <app-month-year [data]="val[0].year_month"></app-month-year>

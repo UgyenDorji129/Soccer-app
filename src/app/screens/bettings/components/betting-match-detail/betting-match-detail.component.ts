@@ -1,46 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-betting-match-detail',
   templateUrl: './betting-match-detail.component.html',
   styleUrls: ['./betting-match-detail.component.css']
 })
-export class BettingMatchDetailComponent implements OnInit{
-  goalForm!: FormGroup;
+export class BettingMatchDetailComponent {
+ 
+  @Input() data: any;
+  @Input()
+  index!: any;
 
-  constructor(private formBuilder: FormBuilder, private router: Router){}
-  ngOnInit(): void {
-    this.goalForm = this.formBuilder.group({
-      first_goal: ["",[
-        Validators.required,
-        Validators.min(0)
-      ]],
-      second_goal: ["",[
-        Validators.required,
-        Validators.min(0)
-      ]]
+  modalRef: MdbModalRef<ModalComponent> | null = null;
+
+  constructor(private modalService: MdbModalService) {}
+
+  openModal() {
+    console.log(this.data.time)
+    this.modalRef = this.modalService.open(ModalComponent,{
+      data: { data: this.data },
     })
   }
+  
 
-  get email(){
-    return this.goalForm.get("email");
-  }
 
-  get password(){
-    return this.goalForm.get("password")
-  }
-  openModal(){
-    const modalDiv = document.getElementById("ticket-Modal");
-    if(modalDiv != null){
-      modalDiv.style.display = "block"
-    }
-  }
-  closeModal(){
-    const modalDiv = document.getElementById("ticket-Modal");
-    if(modalDiv != null){
-      modalDiv.style.display = "none"
-    }
-  }
+ 
 }
