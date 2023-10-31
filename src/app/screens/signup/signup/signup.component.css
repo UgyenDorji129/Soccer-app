@@ -1,61 +1,61 @@
-.main-container{
-    height: 100vh;
+.main-container {
+  height: 100vh;
 }
 
-.secondary-container{
-    width: 22rem;
-    background-color: white;
-    border: 1px solid whitesmoke;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgb(210, 203, 203), 0 6px 20px 0 whitesmoke;
-    padding: 1rem 2rem;
+.secondary-container {
+  width: 22rem;
+  background-color: white;
+  border: 1px solid whitesmoke;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgb(210, 203, 203), 0 6px 20px 0 whitesmoke;
+  padding: 1rem 2rem;
 }
 
-.main-title{
-    font-size: 1.3rem;
-    color: rgb(66, 64, 64);
-    font-weight: 500;
-    margin: 0;
+.main-title {
+  font-size: 1.3rem;
+  color: rgb(66, 64, 64);
+  font-weight: 500;
+  margin: 0;
 }
-.secondary-title{
-    font-size: 0.8rem;
-    font-weight: 200;
-    color: rgb(116, 114, 114);
-    margin: 0;
-}
-
-.input-field{
-    font-size: 0.9rem;
-    font-weight: 300;
-    border-radius: 0.2rem;
-    border: 1px solid rgb(213, 210, 210);
+.secondary-title {
+  font-size: 0.8rem;
+  font-weight: 200;
+  color: rgb(116, 114, 114);
+  margin: 0;
 }
 
-.error-text{
-    font-size: 0.8rem;
-    margin-top: 0.1rem;
+.input-field {
+  font-size: 0.9rem;
+  font-weight: 300;
+  border-radius: 0.2rem;
+  border: 1px solid rgb(213, 210, 210);
 }
 
-.forgot-password{
-    font-size: 0.75rem;
-    margin-top: 0.35rem;
+.error-text {
+  font-size: 0.8rem;
+  margin-top: 0.1rem;
 }
 
-.divider{
-    display: flex;
-    width: -webkit-fill-available;
-    align-items: flex-start;
+.forgot-password {
+  font-size: 0.75rem;
+  margin-top: 0.35rem;
 }
 
-.div-line{
-    width: 28%;
+.divider {
+  display: flex;
+  width: -webkit-fill-available;
+  align-items: flex-start;
 }
 
-.other-option{
-    font-size: 0.8rem;
-    text-align: center;
-    color: rgb(66, 64, 64);
+.div-line {
+  width: 28%;
 }
-.other-option a{
-    text-decoration: none;
+
+.other-option {
+  font-size: 0.8rem;
+  text-align: center;
+  color: rgb(66, 64, 64);
+}
+.other-option a {
+  text-decoration: none;
 }

@@ -15,50 +15,52 @@ import { AdminGuard } from './guard/admin.guard';
 
 const routes: Routes = [
   {
-    path:"signin",
-    component:SigninComponent,
-    canActivate: [GuestGuard] 
+    path: 'signin',
+    component: SigninComponent,
+    canActivate: [GuestGuard],
   },
   {
-    path:"signup",
-    component:SignupComponent,
-    canActivate: [GuestGuard] 
+    path: 'signup',
+    component: SignupComponent,
+    canActivate: [GuestGuard],
   },
   {
-    path:"home",
-    component:HomeComponent,
-    canActivate: [AuthGuard] 
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:"fixtures",
-    component:FixtureComponent,
-    canActivate: [AuthGuard] 
+    path: 'fixtures',
+    component: FixtureComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:"bettings",
-    component:BettingComponent,
-    canActivate: [AuthGuard]  
+    path: 'bettings',
+    component: BettingComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:"tickets",
-    component:TicketComponent,
-    canActivate: [AuthGuard] 
-  },{
-    path:"admin",
-    component:AdminComponent,
-    canActivate: [AdminGuard] 
-  },{
-    path:"add-matches",
-    component:AddMatchesComponent,
-    canActivate: [AdminGuard]  
+    path: 'tickets',
+    component: TicketComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'add-matches',
+    component: AddMatchesComponent,
+    canActivate: [AdminGuard],
   },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: '**', redirectTo: 'home' }
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  providers:[CookieService],
-  exports: [RouterModule]
+  providers: [CookieService],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

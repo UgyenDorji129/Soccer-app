@@ -9,15 +9,21 @@ import { ModalComponent } from 'src/app/screens/bettings/components/modal/modal.
 @Component({
   selector: 'app-ticket-modal',
   templateUrl: './ticket-modal.component.html',
-  styleUrls: ['./ticket-modal.component.css']
+  styleUrls: ['./ticket-modal.component.css'],
 })
 export class TicketModalComponent {
   data: any;
-  constructor(public modalRef: MdbModalRef<TicketModalComponent>, private router: Router, private http: HttpClient) {}
-  makeBooking(){
-    this.http.post(rootUrl+"matches/booking",{matchId: this.data.matchId}).subscribe((res:any)=>{
-      this.router.navigate(["/home"]);
-      this.modalRef.close()
-    })
+  constructor(
+    public modalRef: MdbModalRef<TicketModalComponent>,
+    private router: Router,
+    private http: HttpClient
+  ) {}
+  makeBooking() {
+    this.http
+      .post(rootUrl + 'matches/booking', { matchId: this.data.matchId })
+      .subscribe((res: any) => {
+        this.router.navigate(['/home']);
+        this.modalRef.close();
+      });
   }
 }

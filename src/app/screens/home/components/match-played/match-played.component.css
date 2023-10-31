@@ -1,57 +1,55 @@
-.table-div{
-    border: 1px solid whitesmoke;
-    height: 25rem;
+.table-div {
+  border: 1px solid whitesmoke;
+  height: 25rem;
 }
-.table-title{
-    background-color: rgb(244, 94, 119);
-    color: white;
+.table-title {
+  background-color: rgb(244, 94, 119);
+  color: white;
 }
-.date{
-    font-weight: 400;
-    font-size: 2rem;
-    padding-right: 0.5rem;
+.date {
+  font-weight: 400;
+  font-size: 2rem;
+  padding-right: 0.5rem;
 }
-.day{
-    line-height: 0.8rem;
-    font-weight: 200;
-}
-
-.club-logo{
-    height: 6rem;
-    width: 4rem;
+.day {
+  line-height: 0.8rem;
+  font-weight: 200;
 }
 
-.club-details{
-    color: rgb(51, 50, 50);
-    font-weight: 400;
+.club-logo {
+  height: 6rem;
+  width: 4rem;
 }
 
-.trophy-icon{
-    height: 3rem;
-    width: 3rem;
-}
-.scores{
-    background-color: rgb(244, 94, 119);
-    border-radius: 2rem;
-
+.club-details {
+  color: rgb(51, 50, 50);
+  font-weight: 400;
 }
 
-.scores p{
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: white;
-    text-align: center;
-    padding-left: 1rem;
-    padding-right: 1rem;
+.trophy-icon {
+  height: 3rem;
+  width: 3rem;
+}
+.scores {
+  background-color: rgb(244, 94, 119);
+  border-radius: 2rem;
 }
 
-.stadium-name{
-    color: rgb(51, 50, 50);
-    font-weight: 200;
-    font-size: 1rem;
+.scores p {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
+.stadium-name {
+  color: rgb(51, 50, 50);
+  font-weight: 200;
+  font-size: 1rem;
+}
 
-.table-btn{
-    font-size: 0.6rem;
+.table-btn {
+  font-size: 0.6rem;
 }

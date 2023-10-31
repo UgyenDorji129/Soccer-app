@@ -1,27 +1,29 @@
 <nav class="navbar navbar-expand-lg m-2  border-bottom mb-0">
-    <div class="container-fluid d-flex justify-content-between">
-      <a class="navbar-brand " routerLink="/home"><img src="../../../../assets/app-logo.png" height="50" width="50" class="img-fluid"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex column-gap-5 fw-700">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/home" routerLinkActive="active">HOME</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/fixtures" routerLinkActive="active">FIXTURES</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/bettings" routerLinkActive="active">BETTINGS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/tickets" routerLinkActive="active">TICKETS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" (click)="handleLogOut()" routerLink="#">LOGOUT</a>
-          </li>
-        </ul>
-      </div>
+  <div class="container-fluid d-flex justify-content-between">
+    <a class="navbar-brand " routerLink="/home"><img src="../../../../assets/app-logo.png" height="50" width="50"
+        class="img-fluid"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex column-gap-5 fw-700">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/fixtures" routerLinkActive="active">FIXTURES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/bettings" routerLinkActive="active">BETTINGS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/tickets" routerLinkActive="active">TICKETS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="handleLogOut()" routerLink="#">LOGOUT</a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>

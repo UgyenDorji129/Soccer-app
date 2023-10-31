@@ -1,11 +1,10 @@
 .spinner-container {
-    position: fixed;
-    top: 10rem;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+  position: fixed;
+  top: 10rem;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
