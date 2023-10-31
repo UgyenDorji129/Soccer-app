@@ -1,3 +1,8 @@
 .navbar-collapse {
     flex-grow: 0;  
 }
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
+    color: rgb(244, 94, 119);
+    font-weight: 500
+}

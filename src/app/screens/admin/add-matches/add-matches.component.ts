@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { rootUrl } from 'src/app/constants';
 
 @Component({
   selector: 'app-add-matches',
@@ -9,7 +11,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddMatchesComponent implements OnInit {
   teamForm!: FormGroup; 
 
-constructor(private fb: FormBuilder) { }
+constructor(private fb: FormBuilder, private http: HttpClient) { }
   ngOnInit(): void {
 
     this.teamForm = this.fb.group({
@@ -46,17 +48,24 @@ constructor(private fb: FormBuilder) { }
       logo_two_link:["",[
         Validators.required
       ]],
-      player_one:this.fb.array([]),
-      player_two:this.fb.array([])
+      category:["",[
+        Validators.required
+      ]],
+      league:["",[
+        Validators.required
+      ]]
+      ,
+      team_one_player:this.fb.array([]),
+      team_two_player:this.fb.array([])
     });
   }
 
   get teamOnePlayerForms() {
-    return this.teamForm.get('player_one') as FormArray
+    return this.teamForm.get('team_one_player') as FormArray
   }
 
   get teamTwoPlayerForms() {
-    return this.teamForm.get('player_two') as FormArray
+    return this.teamForm.get('team_two_player') as FormArray
   }
   
   addTeamOnePlayer() {
@@ -73,8 +82,8 @@ constructor(private fb: FormBuilder) { }
   }
   addTeamTwoPlayer() {
     const player = this.fb.group({ 
-      number: [],
-      name:[]
+      number: ([]),
+      name:([])
     });
   
     (<FormArray><unknown>this.teamTwoPlayerForms).push(player);
@@ -82,6 +91,45 @@ constructor(private fb: FormBuilder) { }
   
   deleteTeamTwoPlayer(i: number) {
     (<FormArray><unknown>this.teamTwoPlayerForms).removeAt(i)
+  }
+
+  handleSubmit(){
+    const teamOne = {
+      "name":this.teamForm.value.team_one_name,
+      "logo": this.teamForm.value.logo_one_link
+  };
+
+    const teamTwo = {
+      "name":this.teamForm.value.team_two_name,
+      "logo": this.teamForm.value.logo_two_link
+  };
+  
+  const match = {
+      "category":this.teamForm.value.category,
+      "league":this.teamForm.value.league,
+      "referee":this.teamForm.value.referee,
+      "linesMenOne":this.teamForm.value.lines_man_1,
+      "linesMenTwo":this.teamForm.value.lines_man_2
+  };
+
+  const details = {
+      "stadium": this.teamForm.value.stadium,
+      "time": this.teamForm.value.date_time,
+      "status":false,
+      "goal":"0-0"
+  };
+
+  const playerOne = this.teamForm.value.team_one_player;
+  const playerTwo = this.teamForm.value.team_two_player;
+
+  this.http.post(rootUrl+"matches/match",{teamOne, teamTwo, match, details, playerOne, playerTwo},{ withCredentials: true }).subscribe((res:any)=>{
+    if(res.success === true){
+      console.log("Done",res)
+    }else{
+      console.log("Not Done", res)
+    }
+   });
+
   }
 
 }

@@ -40,9 +40,14 @@ export class SigninComponent{
   }
 
   signIn(formData: any){
+    console.log(this.loginForm.value)
     this.http.post(rootUrl+"auth/signin",formData,{ withCredentials: true }).subscribe((res:any)=>{
       if(res.success === true){
-        this.router.navigate(["home"]);
+        if(formData.isAdmin){
+          this.router.navigate(["admin"]);
+        }else{
+          this.router.navigate(["home"]);
+        }
       }else{
         this.invalidCredential = true;
       }

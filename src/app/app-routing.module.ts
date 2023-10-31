@@ -11,6 +11,7 @@ import { AddMatchesComponent } from './screens/admin/add-matches/add-matches.com
 import { CookieService } from 'ngx-cookie-service';
 import { GuestGuard } from './guard/guest.guard';
 import { AuthGuard } from './guard/auth.guard';
+import { AdminGuard } from './guard/admin.guard';
 
 const routes: Routes = [
   {
@@ -45,11 +46,11 @@ const routes: Routes = [
   },{
     path:"admin",
     component:AdminComponent,
-    canActivate: [AuthGuard] 
+    canActivate: [AdminGuard] 
   },{
     path:"add-matches",
     component:AddMatchesComponent,
-    canActivate: [AuthGuard]  
+    canActivate: [AdminGuard]  
   },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: '**', redirectTo: 'home' }

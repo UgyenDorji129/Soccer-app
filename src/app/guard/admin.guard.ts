@@ -1,4 +1,4 @@
-// guest.guard.ts
+// auth.guard.ts
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { CookieManagementService } from '../services/cookie.service';
@@ -6,18 +6,14 @@ import { CookieManagementService } from '../services/cookie.service';
 @Injectable({
   providedIn: 'root',
 })
-export class GuestGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
   constructor(private cookieService: CookieManagementService, private router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree {
-    if (this.cookieService.getCookie('token')) {
-      return this.router.createUrlTree(['/home']);
-    } 
-    else if(this.cookieService.getCookie('adminToken')){
-      return this.router.createUrlTree(['/admin']);
-    }
-    else {
+    if (this.cookieService.getCookie('adminToken')) {
       return true;
+    } else {
+      return this.router.createUrlTree(['/signin']); 
     }
   }
 }

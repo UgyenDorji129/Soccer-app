@@ -53,8 +53,9 @@ export class SignupComponent {
     if(this.email?.valid && this.password?.valid && this.name){
       if(this.email?.valid && this.password?.valid){
         this.http.post(rootUrl+"auth/signup",this.signupForm.value).subscribe((res:any)=>{
+          console.log(this.signupForm.value)
           if(res.success == true){
-            this.signIn(this.signupForm.value);
+            this.signIn({email: this.signupForm.value.email, password: this.signupForm.value.password, isAdmin: false});
           }
           else{
             this.invalidCredential = true;
