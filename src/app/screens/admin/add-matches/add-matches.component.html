@@ -5,37 +5,45 @@
            <div class="w-md-25 col-md-3 col-12">
                 <label for="date-time" class="form-label" >Date and Time</label>
                 <input type="datetime-local" class="form-control " id="date-time" formControlName="date_time">
+                <p *ngIf="getFormValues('data_time')?.invalid && getFormValues('data_time')?.touched" class="text-danger error-text">Please Enter the required Field</p>
            </div>
            <div class="w-md-25 col-md-3 col-12">
                 <label for="Referee" class="form-label" >Referee Name</label>
                 <input type="text" placeholder="Enter the name of the Referee" class="form-control" id="Referee" formControlName="referee">
+                <p *ngIf="getFormValues('referee')?.invalid && getFormValues('referee')?.touched" class="text-danger error-text">Please Enter the required Field</p>
            </div>
            <div class="w-md-25 col-md-3 col-12">
             <label for="lines-man-1" class="form-label" >lines man 1</label>
             <input type="text" placeholder="Enter the name of the Lines Man 1" class="form-control" id="lines-man-1" formControlName="lines_man_1">
+            <p *ngIf="getFormValues('lines_man_1')?.invalid && getFormValues('lines_man_1')?.touched" class="text-danger error-text">Please Enter the required Field</p>
            </div>
            <div class="w-md-25 col-md-3 col-12">
             <label for="lines-man-2" class="form-label" >lines man 2</label>
             <input type="text" placeholder="Enter the name of the Lines Man 2" class="form-control" id="lines-man-2" formControlName="lines_man_2">
+            <p *ngIf="getFormValues('lines_man_2')?.invalid && getFormValues('lines_man_2')?.touched" class="text-danger error-text">Please Enter the required Field</p>
            </div>
         </div>
        <div class="time-referee d-flex  row">
         <div class="w-md-25 col-md-3 col-12">
             <label for="stadium" class="form-label">Stadium Name</label>
             <input type="text" placeholder="Enter the name of the stadium" class="form-control" id="stadium" formControlName="stadium">
+            <p *ngIf="getFormValues('stadium')?.invalid && getFormValues('stadium')?.touched" class="text-danger error-text">Please Enter the required Field</p>
         </div>
         <div class="w-md-25 col-md-3 col-12">
             <label for="league" class="form-label">League</label>
             <input type="text" placeholder="Enter the name of the stadium" class="form-control" id="league" formControlName="league">
+            <p *ngIf="getFormValues('league')?.invalid && getFormValues('league')?.touched" class="text-danger error-text">Please Enter the required Field</p>
         </div>
         <div class="w-md-25 col-md-3 col-12">
              <label for="category" class="form-label">Category</label>
              <select class="form-select" id="category" formControlName="category">
                 <option selected>Select</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="men">Men's</option>
+                <option value="women">Women's</option>
+                <option value="under_21">Under 21</option>
+                <option value="under_17">Under 17</option>
               </select>
+              <p *ngIf="getFormValues('category')?.invalid && getFormValues('category')?.touched" class="text-danger error-text">Please Enter the required Field</p>
         </div>
      </div>
         
@@ -43,9 +51,11 @@
             <div class="team-one  col-md-6 col-12">
                 <h4 class="text-center text-primary">Team A</h4>
                 <input type="text" placeholder="Enter the name of the Team" class="form-control mt-2" formControlName="team_one_name">
+                <p *ngIf="getFormValues('team_one_name')?.invalid && getFormValues('team_one_name')?.touched" class="text-danger error-text">Please Enter the required Field</p>
                 <input type="text" placeholder="Enter the name of the Coach" class="form-control mt-2" formControlName="coach_one_name">
+                <p *ngIf="getFormValues('coach_one_namee')?.invalid && getFormValues('coach_one_name')?.touched" class="text-danger error-text">Please Enter the required Field</p>
                 <input type="text" placeholder="Enter the club logo link" class="form-control mt-2" formControlName="logo_one_link">
-                
+                <p *ngIf="getFormValues('logo_one_link')?.invalid && getFormValues('logo_one_link')?.touched" class="text-danger error-text">Please Enter the required Field</p>
                 <div formArrayName="team_one_player">
                     <div *ngFor="let player of teamOnePlayerForms.controls; let i=index" 
                         [formGroupName]="i" class="d-flex justify-content-between column-gap-2">
@@ -58,6 +68,7 @@
                           </svg>
                     </button>
                 </div>
+                <p *ngIf="teamOnePlayerForms?.invalid && teamOnePlayerForms?.touched" class="text-danger error-text">Please Enter the required Field</p>
                 </div>
 
                 <button class="btn-primary btn mt-3" (click)="addTeamOnePlayer()">Add Player</button>
@@ -79,13 +90,15 @@
                   </svg>
             </button>
         </div>
+        <p *ngIf="teamTwoPlayerForms?.invalid && teamTwoPlayerForms?.touched" class="text-danger error-text">Please Enter the required Field</p>
         <button class="btn-primary btn mt-3" (click)="addTeamTwoPlayer()">Add Player</button>
             </div>
             
             </div>
         </div>
     </div>
+    <p *ngIf="isInvalid" class="text-danger error-text text-center">There should be atleast 15 players in each team</p>
     <div class="container d-flex justify-content-center mt-5">
-        <button class="btn btn-primary " (click)="handleSubmit()" type="submit">Create Team</button>
+        <button class="btn btn-primary " (click)="handleSubmit()" type="submit" [disabled]="teamForm.invalid">Create Team</button>
     </div>
 </form>

@@ -10,6 +10,9 @@ import { rootUrl } from 'src/app/constants';
 })
 export class AddMatchesComponent implements OnInit {
   teamForm!: FormGroup; 
+  teamOneCount: number = 0;
+  teamTwoCount: number = 0;
+  isInvalid: boolean = false;
 
 constructor(private fb: FormBuilder, private http: HttpClient) { }
   ngOnInit(): void {
@@ -60,6 +63,10 @@ constructor(private fb: FormBuilder, private http: HttpClient) { }
     });
   }
 
+  getFormValues(controllerName:string){
+    return this.teamForm.get(controllerName);
+  }
+
   get teamOnePlayerForms() {
     return this.teamForm.get('team_one_player') as FormArray
   }
@@ -69,27 +76,41 @@ constructor(private fb: FormBuilder, private http: HttpClient) { }
   }
   
   addTeamOnePlayer() {
+    this.teamOneCount = this.teamOneCount + 1;
     const player = this.fb.group({ 
-      number: [],
-      name:[]
+      number: ["",[
+        Validators.required
+      ]],
+      name: ["",[
+        Validators.required
+      ]],
     });
   
     (<FormArray><unknown>this.teamOnePlayerForms).push(player);
   }
   
   deleteTeamOnePlayer(i: number) {
+    this.teamOneCount = this.teamOneCount - 1;
     (<FormArray><unknown>this.teamOnePlayerForms).removeAt(i)
   }
   addTeamTwoPlayer() {
+    this.teamTwoCount = this.teamTwoCount + 1;
     const player = this.fb.group({ 
-      number: ([]),
-      name:([])
+      number:  ["",[
+        Validators.required
+      ]],
+      name: ["",[
+        Validators.required
+      ]],
     });
   
     (<FormArray><unknown>this.teamTwoPlayerForms).push(player);
+
+    
   }
   
   deleteTeamTwoPlayer(i: number) {
+    this.teamTwoCount = this.teamTwoCount - 1;
     (<FormArray><unknown>this.teamTwoPlayerForms).removeAt(i)
   }
 
@@ -122,14 +143,18 @@ constructor(private fb: FormBuilder, private http: HttpClient) { }
   const playerOne = this.teamForm.value.team_one_player;
   const playerTwo = this.teamForm.value.team_two_player;
 
-  this.http.post(rootUrl+"matches/match",{teamOne, teamTwo, match, details, playerOne, playerTwo},{ withCredentials: true }).subscribe((res:any)=>{
-    if(res.success === true){
-      console.log("Done",res)
-    }else{
-      console.log("Not Done", res)
-    }
-   });
-
+  
+  if(this.teamOneCount < 15 || this.teamTwoCount < 15){
+    this.isInvalid = true;
   }
-
+  else{
+    this.http.post(rootUrl+"matches/match",{teamOne, teamTwo, match, details, playerOne, playerTwo},{ withCredentials: true }).subscribe((res:any)=>{
+      if(res.success === true){
+        console.log("Done",res)
+      }else{
+        console.log("Not Done", res)
+      }
+     });
+  }
+}
 }
