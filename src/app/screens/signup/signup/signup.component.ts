@@ -53,15 +53,11 @@ export class SignupComponent {
     if (this.email?.valid && this.password?.valid && this.name) {
       if (this.email?.valid && this.password?.valid) {
         this.http
-          .post(rootUrl + 'auth/signup', this.signupForm.value)
+          .post(rootUrl + 'auth/signup', this.signupForm.value,{ withCredentials: true })
           .subscribe((res: any) => {
             console.log(this.signupForm.value);
             if (res.success == true) {
-              this.signIn({
-                email: this.signupForm.value.email,
-                password: this.signupForm.value.password,
-                isAdmin: false,
-              });
+              this.router.navigate(["/signin"])
             } else {
               this.invalidCredential = true;
             }

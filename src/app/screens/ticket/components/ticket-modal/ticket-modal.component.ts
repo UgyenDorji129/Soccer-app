@@ -20,7 +20,7 @@ export class TicketModalComponent {
   ) {}
   makeBooking() {
     this.http
-      .post(rootUrl + 'matches/booking', { matchId: this.data.matchId })
+      .post(rootUrl + 'matches/booking', { matchId: this.data.matchId },{ withCredentials: true })
       .subscribe((res: any) => {
         this.router.navigate(['/home']);
         this.modalRef.close();

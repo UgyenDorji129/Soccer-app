@@ -46,7 +46,7 @@ export class ModalComponent {
         matchId: this.data.matchId,
         amount: this.amounts?.value,
         prediction: this.firstGoal?.value + '-' + this.secondGoal?.value,
-      })
+      },{ withCredentials: true })
       .subscribe((res: any) => {
         this.router.navigate(['/home']);
         this.modalRef.close();

@@ -31,7 +31,7 @@ export class TicketMatchDetailComponent {
   ) {}
   ngOnInit(): void {
     this.http
-      .post(rootUrl + 'matches/isBooked', { matchId: this.data.matchId })
+      .post(rootUrl + 'matches/isBooked', { matchId: this.data.matchId }, { withCredentials: true })
       .subscribe((res: any) => {
         if (res != null && res.success === true) {
           this.isBooked = true;

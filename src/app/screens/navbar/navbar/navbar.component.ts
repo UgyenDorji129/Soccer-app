@@ -14,6 +14,7 @@ export class NavbarComponent {
   ) {}
   handleLogOut() {
     this.cookieService.deleteCookie('token');
+    this.cookieService.deleteCookie('userId');
     this.router.navigate(['signin']);
   }
 }

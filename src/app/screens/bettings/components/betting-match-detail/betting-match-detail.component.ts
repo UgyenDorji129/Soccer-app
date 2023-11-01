@@ -28,11 +28,12 @@ export class BettingMatchDetailComponent {
 
   ngOnInit(): void {
     this.http
-      .post(rootUrl + 'matches/isBetted', { matchId: this.data.matchId })
+      .post(rootUrl + 'matches/isBetted', { matchId: this.data.matchId },{ withCredentials: true })
       .subscribe((res: any) => {
         if (res != null && res.success === true) {
           this.isBetted = true;
           this.goal = res.data;
+          console.log(res)
         }
       });
   }
